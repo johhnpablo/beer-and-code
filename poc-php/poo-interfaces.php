@@ -9,7 +9,7 @@ class Bank implements Money
 {
     public function getMoney()
     {
-        return '';
+        return '10' . PHP_EOL;
     }
 }
 
@@ -17,6 +17,19 @@ class Broker implements Money
 {
     public function getMoney()
     {
-        return '';
+        return '15';
     }
 }
+
+class OperationService
+{
+    public function retrieveInvestments(Money $institution)
+    {
+
+        return $institution->getMoney();
+    }
+}
+
+$service = new OperationService();
+
+echo $service->retrieveInvestments(new Bank);
